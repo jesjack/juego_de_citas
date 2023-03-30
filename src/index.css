@@ -35,7 +35,7 @@ body {
     font-size: .7em;
 }
 
-.dialog p.text {
+.dialog div.text {
     font-size: .8em;
     font-weight: lighter;
     margin: 0;
