@@ -40,3 +40,7 @@ body {
     font-weight: lighter;
     margin: 0;
 }
+
+.dialog div.text p {
+    margin: 0;
+}

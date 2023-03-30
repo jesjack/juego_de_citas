@@ -27,10 +27,10 @@
  */
 
 import './index.css';
-import {simple_dialog} from "./scripts/simple_dialog";
+import {simple_dialog, simple_dialog} from "./scripts/simple_dialog";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 simple_dialog({
-    message: 'Hello from the renderer process!',
-});
+    message: 'Hello, world!\nThis is a paragraph dialog.',
+})
