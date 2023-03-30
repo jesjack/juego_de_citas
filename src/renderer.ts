@@ -27,10 +27,17 @@
  */
 
 import './index.css';
-import {simple_dialog, simple_dialog} from "./scripts/simple_dialog";
+import {simple_dialog} from "./scripts/simple_dialog";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 simple_dialog({
     message: 'Hello, world!\nThis is a paragraph dialog.',
+    buttons: [ 'OK', 'Cancel' ],
+}).then((result) => {
+    simple_dialog({
+        message: `You clicked ${result}`,
+    }).then(() => {
+        console.log('Dialog closed');
+    })
 })

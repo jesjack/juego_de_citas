@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc7d97e6-c2c1-4f15-bdad-fe1443a28a7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" afterDir="false" />
@@ -83,7 +81,7 @@
       <workItem from="1680106996417" duration="2275000" />
       <workItem from="1680110069920" duration="2564000" />
       <workItem from="1680187486506" duration="199000" />
-      <workItem from="1680187778420" duration="2296000" />
+      <workItem from="1680187778420" duration="4797000" />
     </task>
     <servers />
   </component>
