@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc7d97e6-c2c1-4f15-bdad-fe1443a28a7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.opencommitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/_81d84d12-b0c7-46d1-bf02-d68c5c34a5f4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scripts/background.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/character.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/character.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +93,7 @@
       <workItem from="1680187486506" duration="199000" />
       <workItem from="1680187778420" duration="10328000" />
       <workItem from="1680387103794" duration="3872000" />
-      <workItem from="1680391034110" duration="2464000" />
+      <workItem from="1680391034110" duration="4176000" />
     </task>
     <servers />
   </component>

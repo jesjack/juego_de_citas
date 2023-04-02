@@ -37,7 +37,6 @@ const character1 = new Character({
     name: 'Chica',
     sprite: '/assets/images/character.png',
     width: 150,
-    height: 100,
     bottom: 0,
     top: 50,
     x: 50,

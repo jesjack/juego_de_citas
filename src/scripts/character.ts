@@ -53,51 +53,45 @@ export class Character {
         }
     }
     setVisible(visible: boolean) {
-        if (visible) {
-            const game = document.getElementById('game');
-            //     check if this character is not rendered
-            if (!game.querySelector(`#${this.id}`)) {
-                const character = document.createElement('div');
-                character.id = this.id;
-                character.classList.add('character');
-                if (this.left === undefined || this.right === undefined)
-                    character.style.width = `${this.width}px`;
-                if (this.top === undefined || this.bottom === undefined)
-                    character.style.height = `${this.height}px`;
-                character.style.backgroundImage = `url(data:image/jpeg;base64,${this.base64Sprite})`;
-                character.style.backgroundSize = '100% 100%';
-                character.style.backgroundRepeat = 'no-repeat';
-                character.style.backgroundPosition = 'center';
-
-                character.style.position = 'absolute';
-                character.style.left = `${this.x}px`;
-                if (this.x !== undefined) {
-                    character.style.left = `${this.x}px`;
-                }
-                if (this.y !== undefined) {
-                    character.style.top = `${this.y}px`;
-                }
-                if (this.top !== undefined) {
-                    character.style.top = `${this.top}px`;
-                }
-                if (this.left !== undefined) {
-                    character.style.left = `${this.left}px`;
-                }
-                if (this.bottom !== undefined) {
-                    character.style.bottom = `${this.bottom}px`;
-                }
-                if (this.right !== undefined) {
-                    character.style.right = `${this.right}px`;
-                }
-
-                const dialog = document.getElementById('dialog');
-                game.insertBefore(character, dialog);
-            }
-        } else {
+        if (!visible) {
             const character = document.getElementById(this.id);
             if (character) {
                 character.remove();
             }
+            return;
         }
+
+        if (document.getElementById(this.id))
+            return;
+
+        const game = document.getElementById('game');
+        const character = document.createElement('div');
+        character.id = this.id;
+        character.classList.add('character');
+        if (this.left === undefined || this.right === undefined)
+            character.style.width = this.width + 'px';
+        if (this.top === undefined || this.bottom === undefined)
+            character.style.height = `${this.height}px`;
+        character.style.backgroundImage = `url(data:image/jpeg;base64,${this.base64Sprite})`;
+        character.style.backgroundSize = '100% 100%';
+        character.style.backgroundRepeat = 'no-repeat';
+        character.style.backgroundPosition = 'center';
+
+        character.style.position = 'absolute';
+        if (this.x !== undefined)
+            character.style.left = this.x + 'px';
+        if (this.y !== undefined)
+            character.style.top = this.y + 'px';
+        if (this.top !== undefined)
+            character.style.top = this.top + 'px';
+        if (this.left !== undefined)
+            character.style.left = this.left + 'px';
+        if (this.bottom !== undefined)
+            character.style.bottom = this.bottom + 'px';
+        if (this.right !== undefined)
+            character.style.right = this.right + 'px';
+
+        const dialog = document.getElementById('dialog');
+        game.insertBefore(character, dialog);
     }
 }
