@@ -46,14 +46,15 @@ async function main() {
     await simple_dialog({
         message: 'Hello, world!\nThis is a paragraph dialog.',
     });
-    character1.setVisible(true);
+    await character1.say('Hello, world!\nThis is a paragraph dialog.')
     const result = await simple_dialog({
         message: 'Hello, world!\nThis is a paragraph dialog.',
-        buttons: [ 'OK', 'Cancel' ],
+        input: true,
+        // buttons: [ 'OK', 'Cancel' ],
     });
     parse_background('/assets/images/_81d84d12-b0c7-46d1-bf02-d68c5c34a5f4.jpeg');
     await simple_dialog({
-        message: `You clicked ${result}`,
+        message: `You clicked ${JSON.stringify(result)}`,
     });
     character1.setVisible(false);
 }

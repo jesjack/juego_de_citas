@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/character.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/character.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +94,7 @@
       <workItem from="1680187486506" duration="199000" />
       <workItem from="1680187778420" duration="10328000" />
       <workItem from="1680387103794" duration="3872000" />
-      <workItem from="1680391034110" duration="4176000" />
+      <workItem from="1680391034110" duration="6759000" />
     </task>
     <servers />
   </component>

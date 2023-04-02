@@ -20,10 +20,11 @@ document.addEventListener('keydown', (event) => {
  *
  */
 export async function simple_dialog({
-                                         title = 'System',
-                                         message = '',
-                                         buttons = [] as string[],
-                                        } = {}): Promise<string | void> {
+                                        title = 'System',
+                                        message = '',
+                                        buttons = [] as string[],
+                                        input = false,
+                                        } = {}): Promise<{ button: string, value: string } | string | void> {
     document.getElementById('dialog_title').innerText = title;
     const dialog_message = document.getElementById('dialog_message');
     dialog_message.innerHTML = '';
@@ -60,7 +61,7 @@ export async function simple_dialog({
         });
     }
 
-    if (buttons.length === 0) {
+    if (buttons.length === 0 && !input) {
         return new Promise<void>((resolve) => {
             const interval = setInterval(() => {
                 if (keydowns.includes(' ')) {
@@ -73,18 +74,38 @@ export async function simple_dialog({
         });
     }
 
+    if (input) {
+        const input_element = document.createElement('input');
+        input_element.type = 'text';
+        input_element.classList.add('input');
+        dialog_message.appendChild(input_element);
+        input_element.focus();
+    }
+
     const buttons_container = document.createElement('div');
     buttons_container.classList.add('buttons');
     dialog_message.appendChild(buttons_container);
-    return new Promise<string>((resolve) => {
-        for (const button of buttons) {
-            const button_element = document.createElement('button');
-            button_element.innerText = button;
-            buttons_container.appendChild(button_element);
+    for (const button of buttons) {
+        const button_element = document.createElement('button');
+        button_element.innerText = button;
+        buttons_container.appendChild(button_element);
+    }
+
+    return new Promise<{ button: string, value: string } | string>((resolve) => {
+        const buttons_elements = buttons_container.querySelectorAll('button');
+        for (let i = 0; i < buttons_elements.length; i++) {
+            const button_element = buttons_elements[i];
             button_element.addEventListener('click', () => {
-                dialog_message.innerHTML = '';
-                resolve(button);
+                const input_element = dialog_message.querySelector('input');
+                resolve(input_element ? {button: button_element.innerText, value: input_element.value} : button_element.innerText);
             });
         }
+
+        const input_element = dialog_message.querySelector('input');
+        input_element?.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                resolve(buttons.length > 0 ? {button: 'Enter', value: input_element.value} : input_element.value);
+            }
+        });
     });
 }

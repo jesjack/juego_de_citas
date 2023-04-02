@@ -1,4 +1,5 @@
 import {gen_guid} from "./guid";
+import {simple_dialog} from "./simple_dialog";
 
 const fs = window.require('fs');
 const path = window.require('path');
@@ -93,5 +94,14 @@ export class Character {
 
         const dialog = document.getElementById('dialog');
         game.insertBefore(character, dialog);
+    }
+
+    say(text: string, checkVisibility = true) {
+        if (checkVisibility)
+            this.setVisible(true);
+        return simple_dialog({
+            title: this.name,
+            message: text,
+        })
     }
 }
