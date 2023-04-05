@@ -1,9 +1,6 @@
-/*
- * <div class="dialog">
- *         <span class="title" id="dialog_title">Sistema</span>
- *         <div class="text" id="dialog_message">Cargando dialogos...</div>
- *       </div>
- */
+import './latex_math';
+
+const dialog_message = document.getElementById('dialog_message');
 
 // add key press event listener to all page
 const keydowns: string[] = [];
@@ -26,7 +23,6 @@ export async function simple_dialog({
                                         input = false,
                                         } = {}): Promise<{ button: string, value: string } | string | void> {
     document.getElementById('dialog_title').innerText = title;
-    const dialog_message = document.getElementById('dialog_message');
     dialog_message.innerHTML = '';
     keydowns.splice(0, keydowns.length);
     const paragraphs = message.split('\n');

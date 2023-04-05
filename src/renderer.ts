@@ -33,6 +33,7 @@ import {Character} from "./scripts/character";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
+
 const character1 = new Character({
     name: 'Chica',
     sprite: '/assets/images/character.png',
@@ -46,7 +47,7 @@ async function main() {
     await simple_dialog({
         message: 'Hello, world!\nThis is a paragraph dialog.',
     });
-    await character1.say('Hello, world!\nThis is a paragraph dialog.')
+    await character1.say('Hola humano, puedes resolver la siguiente ecuación?\n$$\\frac{1}{2}$$')
     const result = await simple_dialog({
         message: 'Hello, world!\nThis is a paragraph dialog.',
         input: true,

@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "mathjax": "^3.2.2",
+    "mathjax-node": "^2.1.1",
     "standard-version": "^9.5.0"
   }
 }

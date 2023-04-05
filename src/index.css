@@ -1,3 +1,57 @@
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-Regular.ttf');
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-SemiBoldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: STIX Two Text;
+    src: url('/assets/fonts/stix two text/static/STIXTwoText-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
@@ -64,4 +118,30 @@ body {
 
 .dialog div.text div.buttons button:hover {
     background-color: #e2e2e2;
+}
+
+.dialog div.text input {
+    background-color: rgba(0, 0, 0, 0.23);
+    border: none;
+    border-radius: 3px;
+    padding: 0.3rem .5rem;
+    font-size: .8em;
+    margin-top: .3rem;
+    color: white;
+    border-left: 3px solid #f2f2f2;
+    width: 100%;
+}
+
+.dialog div.text input:focus {
+    outline: none;
+}
+
+math {
+    font-family: STIX Two Text, KaTeX_Math, "Cambria Math", serif;
+    /*font-size: 1.2em;*/
+    font-weight: 500;
+}
+
+munderover > *:last-child {
+    padding-bottom: .2em;
 }

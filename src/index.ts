@@ -19,13 +19,12 @@ const createWindow = (): void => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
       contextIsolation: false,
+      webSecurity: false,
     },
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-
-  // mainWindow.loadFile('assets/images/_81d84d12-b0c7-46d1-bf02-d68c5c34a5f4.jpeg');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
