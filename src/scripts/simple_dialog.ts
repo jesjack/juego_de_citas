@@ -1,4 +1,6 @@
 import './latex_math';
+import {slow_parser, text_format} from "./latex_math";
+import {sleep} from "./time";
 
 const dialog_message = document.getElementById('dialog_message');
 
@@ -25,36 +27,47 @@ export async function simple_dialog({
     document.getElementById('dialog_title').innerText = title;
     dialog_message.innerHTML = '';
     keydowns.splice(0, keydowns.length);
+    const [ msg, indexes, eq ] = text_format(message);
+    message = msg;
     const paragraphs = message.split('\n');
+    let i = 0;
+    const test_equation = async (p: HTMLParagraphElement, not_skip = true) => {
+        if (indexes.some((index) => index === (i))) {
+            const eq_ = await eq();
+            await slow_parser(eq_, p, keydowns, not_skip);
+            //     remove the min index
+            indexes.splice(indexes.indexOf(Math.min(...indexes)), 1);
+            i++;
+        }
+    };
     for (let paragraph of paragraphs) {
         paragraph = paragraph.trim();
         const p = document.createElement('p');
         dialog_message.appendChild(p);
-        await new Promise<void>((resolve) => {
-            let accumulative = '';
-            const interval = setInterval(() => {
-                const dialog_length = p.innerText.length + accumulative.length;
-                if (dialog_length !== paragraph.length) {
-                    if (paragraph[dialog_length] === ' ') {
-                        accumulative += ' ';
-                    } else {
-                        p.innerText += accumulative + paragraph[dialog_length];
-                        accumulative = '';
-                    }
 
-                    // if space pressed, then add all text
-                    if (keydowns.includes(' ')) {
-                        p.innerText += accumulative + paragraph.substring(dialog_length + 1);
-                        clearInterval(interval);
-                        keydowns.splice(keydowns.indexOf(' '), 1);
-                        resolve();
-                    }
-                } else {
-                    clearInterval(interval);
-                    resolve();
-                }
-            }, 50);
-        });
+        console.log(i, indexes)
+        await test_equation(p);
+
+        // console.log(paragraph);
+        for (const letter of paragraph) {
+            await sleep(!keydowns.includes(' ')  && 50);
+            const lastChild = p.lastChild;
+            if (lastChild instanceof Text) {
+                lastChild.textContent += letter;
+            } else {
+                // console.log(letter);
+                p.appendChild(document.createTextNode(letter));
+            }
+            i++;
+
+            await test_equation(p, false);
+        }
+
+        if (keydowns.includes(' ')) {
+            keydowns.splice(keydowns.indexOf(' '), 1);
+        }
+
+        i++;
     }
 
     if (buttons.length === 0 && !input) {

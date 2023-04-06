@@ -44,10 +44,13 @@ const character1 = new Character({
 })
 
 async function main() {
-    await simple_dialog({
-        message: 'Hello, world!\nThis is a paragraph dialog.',
-    });
-    await character1.say('Hola humano, puedes resolver la siguiente ecuación?\n$$\\frac{1}{2}$$')
+    // await simple_dialog({
+    //     message: 'Hello, world!\nThis is a paragraph dialog.',
+    // });
+    // await character1.say('Hola humano, puedes resolver la siguiente ecuación?\n$$\\frac{1}{2}$$')
+    await character1.say('Ya lo sé, mejor intenta resolver lo siguiente:\n' +
+        '$$\\int_{0}^{\\infty} \\frac{1}{x^2}ab dx$$\n' +
+        'donde $a$ y $b$ son constantes.')
     const result = await simple_dialog({
         message: 'Hello, world!\nThis is a paragraph dialog.',
         input: true,

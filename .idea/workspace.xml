@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc7d97e6-c2c1-4f15-bdad-fe1443a28a7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/latex_math.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/latex_math.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/simple_dialog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +96,7 @@
       <workItem from="1680187778420" duration="10328000" />
       <workItem from="1680387103794" duration="3872000" />
       <workItem from="1680391034110" duration="12293000" />
-      <workItem from="1680477070477" duration="24423000" />
+      <workItem from="1680477070477" duration="41638000" />
     </task>
     <servers />
   </component>
