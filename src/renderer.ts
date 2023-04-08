@@ -35,8 +35,8 @@ console.log('👋 This message is being logged by "renderer.js", included via we
 
 
 const character1 = new Character({
-    name: 'Chica',
-    sprite: '/assets/images/character.png',
+    name: 'Chica sensual',
+    sprite: 'character.png',
     width: 150,
     bottom: 0,
     top: 50,
@@ -44,23 +44,17 @@ const character1 = new Character({
 })
 
 async function main() {
-    // await simple_dialog({
-    //     message: 'Hello, world!\nThis is a paragraph dialog.',
-    // });
-    // await character1.say('Hola humano, puedes resolver la siguiente ecuación?\n$$\\frac{1}{2}$$')
-    await character1.say('Ya lo sé, mejor intenta resolver lo siguiente:\n' +
-        '$$\\int_{0}^{\\infty} \\frac{1}{x^2}ab dx$$\n' +
-        'donde $a$ y $b$ son constantes.')
-    const result = await simple_dialog({
-        message: 'Hello, world!\nThis is a paragraph dialog.',
-        input: true,
-        // buttons: [ 'OK', 'Cancel' ],
-    });
-    parse_background('/assets/images/_81d84d12-b0c7-46d1-bf02-d68c5c34a5f4.jpeg');
+    await parse_background('_81d84d12-b0c7-46d1-bf02-d68c5c34a5f4.jpeg')
     await simple_dialog({
-        message: `You clicked ${JSON.stringify(result)}`,
-    });
-    character1.setVisible(false);
+        message: 'Preparando juego...'
+    })
+    await character1.say('Hola, soy una chica sensual, y si resuelves la siguiente ecuación, te daré un beso:\n' +
+        '$$\\int\\frac{1}{x^2+2} dx=\\frac{1}{2} \\ln(x^2+2)+5$$\n' +
+        '¿Sabes el resultado?')
+    await simple_dialog({
+        message: 'Escribe el resultado de $\\int\\frac{1}{x^2+2} dx=\\frac{1}{2} \\ln(x^2+2)+5$',
+        input: true
+    })
 }
 
 main().then(r => console.log('done', r));

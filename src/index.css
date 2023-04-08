@@ -136,11 +136,11 @@ body {
     outline: none;
 }
 
-math {
-    font-family: STIX Two Text, KaTeX_Math, "Cambria Math", serif;
-    /*font-size: 1.2em;*/
-    font-weight: 500;
-}
+/*math {*/
+/*    font-family: STIX Two Text, KaTeX_Math, "Cambria Math", serif;*/
+/*    !*font-size: 1.2em;*!*/
+/*    font-weight: 500;*/
+/*}*/
 
 munderover > *:last-child {
     padding-bottom: .2em;

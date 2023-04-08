@@ -1,12 +1,29 @@
 import {gen_guid} from "./guid";
-import {simple_dialog} from "./simple_dialog";
+import {dialog_options, simple_dialog} from "./simple_dialog";
 
 const fs = window.require('fs');
 const path = window.require('path');
 
+export interface character_say_options extends Omit<dialog_options, 'message'> {
+    checkVisibility?: boolean;
+}
+
+export interface character_options {
+    name: string;
+    sprite: string;
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    top?: number;
+    left?: number;
+    bottom?: number;
+    right?: number;
+}
+
 export class Character {
     private id: string;
-    private name: string;
+    public name: string;
     private x?: number;
     private y?: number;
     private top?: number;
@@ -16,41 +33,40 @@ export class Character {
     private width: number;
     private height: number;
     private base64Sprite: string;
-    constructor({
-                    name = 'Character',
-                    sprite = '',
-                    width = 0,
-                    height = 0,
-                    x = undefined as number | undefined,
-                    y = undefined as number | undefined,
-                    top = undefined as number | undefined,
-                    left = undefined as number | undefined,
-                    bottom = undefined as number | undefined,
-                    right = undefined as number | undefined,
-                } = {}) {
+    constructor(options: character_options) {
+        // {
+        //             name = 'Character',
+        //             sprite = '',
+        //             width = 0,
+        //             height = 0,
+        //             x = undefined as number | undefined,
+        //             y = undefined as number | undefined,
+        //             top = undefined as number | undefined,
+        //             left = undefined as number | undefined,
+        //             bottom = undefined as number | undefined,
+        //             right = undefined as number | undefined,
+        //         } = {}) {
 
         this.id = 'i' + gen_guid();
-        this.name = name;
-        this.x = x;
-        this.y = y;
-        this.top = top;
-        this.left = left;
-        this.bottom = bottom;
-        this.right = right;
-        this.width = width;
-        this.height = height;
+        this.name = options.name;
+        this.x = options.x;
+        this.y = options.y;
+        this.top = options.top;
+        this.left = options.left;
+        this.bottom = options.bottom;
+        this.right = options.right;
+        this.width = options.width;
+        this.height = options.height;
 
-    //     if have sprite, then load it
-        if (sprite) {
-            if (sprite.startsWith('/')) {
-                sprite = sprite.substring(1);
-            }
-            sprite = path.resolve('./', sprite);
-            if (fs.existsSync(sprite)) {
-                this.base64Sprite = fs.readFileSync(sprite, {encoding: 'base64'});
-            } else {
-                console.log(`File ${sprite} does not exists`);
-            }
+        let sprite = options.sprite;
+        if (sprite.startsWith('/')) {
+            sprite = sprite.substring(1);
+        }
+        sprite = path.resolve('./assets/images/', sprite);
+        if (fs.existsSync(sprite)) {
+            this.base64Sprite = fs.readFileSync(sprite, {encoding: 'base64'});
+        } else {
+            console.log(`File ${sprite} does not exists`);
         }
     }
     setVisible(visible: boolean) {
@@ -96,10 +112,11 @@ export class Character {
         game.insertBefore(character, dialog);
     }
 
-    say(text: string, checkVisibility = true) {
-        if (checkVisibility)
+    say(text: string, options: character_say_options = { checkVisibility: true }) {
+        if (options.checkVisibility)
             this.setVisible(true);
         return simple_dialog({
+            ...options,
             title: this.name,
             message: text,
         })

@@ -11,7 +11,7 @@ export function parse_background(file: string) {
         file = file.substring(1);
     }
 
-    file = path.resolve('./', file);
+    file = path.resolve('./assets/images/', file);
     if (fs.existsSync(file)) {
         const base64 = fs.readFileSync(file, { encoding: 'base64' });
         // set background
